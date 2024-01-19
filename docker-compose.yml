@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/projeto
+    ports:
+      - "8000:8000"
+    image: app:latest
+    container_name: django_container
+    command: /projeto/start.sh
+    environment:
+      - STATIC_ROOT=/projeto/static/
