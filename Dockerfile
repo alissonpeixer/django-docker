@@ -1,16 +1,20 @@
 FROM python:3-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-WORKDIR /projeto
+RUN mkdir /app
 
-COPY requirements.txt /projeto/
+RUN mkdir -p /projeto/static/
 
-RUN pip3 install -r requirements.txt
+WORKDIR /app
 
-COPY . /projeto/
+COPY . /app
 
-RUN chmod +x /projeto/start.sh
+RUN pip install --upgrade pip
 
+RUN pip install -r requirements.txt
 
+EXPOSE 8000
+
+RUN chmod +x /app/start.sh

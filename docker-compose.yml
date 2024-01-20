@@ -3,11 +3,9 @@ services:
   app:
     build: .
     volumes:
-      - .:/projeto
+      - .:/app
     ports:
-      - "8000:8000"
-    image: app:latest
+      - 8000:8000
+    image: app:django
     container_name: django_container
-    command: /projeto/start.sh
-    environment:
-      - STATIC_ROOT=/projeto/static/
+    command: sh -c /app/start.sh
