@@ -3,9 +3,11 @@ services:
   app:
     build: .
     volumes:
-      - .:/app
+      - .:/projeto
     ports:
-      - 8000:8000
-    image: app:django
+      - "7777:8000"
+    image: app:latest
     container_name: django_container
-    command: sh -c /app/start.sh
+    command: sh -c "chmod +x /projeto/start.sh && /projeto/start.sh"
+    environment:
+      - STATIC_ROOT=/projeto/static/
