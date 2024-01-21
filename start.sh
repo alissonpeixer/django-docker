@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -e /projeto/core/manage.py  ]; then
+if [ ! -e /app/core/manage.py  ]; then
     django-admin startproject core .
 fi
 
