@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /app
 
-RUN mkdir -p /projeto/static/
+RUN mkdir -p /app/static/
 
 WORKDIR /app
 
